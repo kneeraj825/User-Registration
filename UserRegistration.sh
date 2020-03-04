@@ -35,3 +35,16 @@ function emailValidation()
 }
 emailResult=$(emailValidation $emailId)
 
+#checking the validation of mobile number
+function mobileNumberValidation()
+{
+	number=$1
+	mobile="^[0-9]{2}\s{1}[7-9]{1}[0-9]{9}$"
+	if [[$number =~ $mobile]]
+	then
+		echo "its a valid mobile number"
+	else
+		echo "it is not an valid number"
+	fi
+}
+mobileResult=$(mobileNumberValidation $mobileNumber)
