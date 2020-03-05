@@ -1,10 +1,11 @@
 #!/bin/bash -x
 
-#checking the first and last name starting with capital letter and has minimum three characters
+#checking the first and last name starting with capital letter and has minimum three #characters
 read -p "enter the first name" firstName
 read -p "enter the last name" lastName
 read -p "enter the email" emailId
 read -p "enter the mobile number" mobileNumber
+read -p "enter the password" pass
 
 #checking the validation
 function validation()
@@ -48,3 +49,18 @@ function mobileNumberValidation()
 	fi
 }
 mobileResult=$(mobileNumberValidation $mobileNumber)
+
+#checking the password validation
+function passwordValidation()
+{
+	password=$1
+	validation="^([a-zA-Z0-9]{8,})$"
+	if [[$password =~ $validation]]
+	then
+		echo "its a valid password"
+	else
+		echo "it is not an valid password"
+	fi
+}
+passwordResult=$(passwordValidation $pass)
+echo "$passwordResult"
