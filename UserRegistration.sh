@@ -54,7 +54,7 @@ mobileResult=$(mobileNumberValidation $mobileNumber)
 function passwordValidation()
 {
 	password=$1
-	validation="^([a-zA-Z0-9]{8,})$"
+	validation="^(?=.{8,})(?=.*[a-z])(?=.*[A-Z]).*$"
 	if [[$password =~ $validation]]
 	then
 		echo "its a valid password"
